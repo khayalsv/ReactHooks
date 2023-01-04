@@ -1,10 +1,10 @@
 import React from 'react'
-import UseEffectComponent from './components/useEffectComponent'
+import UseRefComponent from './components/useRefComponent'
 
 const App = () => {
     return (
         <>
-            <UseEffectComponent />
+            <UseRefComponent />
         </>
     )
 }
