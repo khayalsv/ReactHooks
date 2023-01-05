@@ -1,6 +1,6 @@
 # Hooklara Giriş
 
-- Hooklar ilə class yazmadan state və ya React-ın digər xüsusiyyələrindən istifadə edə bilərik.Hooklar React-in funksional komponentləri daxilində çağırılmalıdır.
+Hooklar ilə class yazmadan state və ya React-ın digər xüsusiyyələrindən istifadə edə bilərik.Hooklar React-in funksional komponentləri daxilində çağırılmalıdır.
 Onlar if ifadələri və ya iç-içə funksiyalar daxilində istifadə edilməməlidir.
 
 Reaksiya Komponentlərinə hansı imkanlar lazım ola bilər:
@@ -31,7 +31,7 @@ const useStateComponent = () => {
     return (
         <>
             <p>Count : {count}</p>
-             <button onClick={() => setCount(count + 1)}>Click</button>
+            <button onClick={() => setCount(count + 1)}>Click</button>
         </>
     )
 }
@@ -187,7 +187,9 @@ export default useReducerComponent
 
 - Əgər aşağıdakı nümunəni useState ilə yerinə yetirsəydik, düyməni bir dəfə kliklədikdən sonra komponent yenidən göstəriləcək və ekranda “Clicks: 1” görünəcək. Dəyişənləri useRef ilə saxladığımız üçün ilk dəyər "Clicks: 0" görünəcək, lakin "count" dəyəri yaddaşda 1 olacaq.
 
-- Dəyişən dəyişdirildikdə, useState componenti yenidən göstərmək üçün render edər, useRef componenti yenidən render etməs.
+- Dəyişən dəyişdirildikdə, useState componenti yenidən göstərmək üçün render edər, useRef componenti yenidən render etməz.
+
+- DOM-a bir-başa referans verir
 
 ```js
 import React from 'react'
@@ -205,4 +207,16 @@ const useRefComponent = () => {
 }
 
 export default useRefComponent
+```
+
+```js
+const divEl=useRef();
+
+useEffect(()=>{
+    const handler = () => {
+        console.log(divEl.current)
+    }
+})
+
+<div ref={divEl} />
 ```
